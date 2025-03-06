@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Quest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Productivity Quest</h1>
+            <div class="player-info">
+                <p>Player Name: <input type="text" id="player-name" placeholder="Enter your name"></p>
+                <p>Level: <span id="player-level">1</span></p>
+                <p>XP: <span id="player-xp">0</span> <div id="xp-bar"></div></p>
+                <p>Date: <span id="current-date"></span></p>
+                <button onclick="resetProgress()" class="reset-button">Reset Progress</button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <section class="schedule">
+                <h2>Hourly Schedule (10 XP per Task)</h2>
+                <table id="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Task/Activity</th>
+                            <th>Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-body">
+                        <!-- Dynamically populated by JavaScript -->
+                    </tbody>
+                </table>
+                <p>Total XP Earned Today: <span id="daily-xp">0</span></p>
+            </section>
+
+            <section class="goals-review">
+                <h2>Daily Goals</h2>
+                <div class="goal">
+                    <label>Main Goal (50 XP):</label>
+                    <input type="text" id="main-goal" placeholder="Enter main goal">
+                    <button onclick="completeGoal('main')">Complete</button>
+                </div>
+                <div class="goal">
+                    <label>Secondary Goal (30 XP):</label>
+                    <input type="text" id="secondary-goal" placeholder="Enter secondary goal">
+                    <button onclick="completeGoal('secondary')">Complete</button>
+                </div>
+                <div class="goal">
+                    <label>Tertiary Goal (30 XP):</label>
+                    <input type="text" id="tertiary-goal" placeholder="Enter tertiary goal">
+                    <button onclick="completeGoal('tertiary')">Complete</button>
+                </div>
+
+                <h2>End of the Day Review</h2>
+                <div class="review">
+                    <label>Achievements Unlocked:</label>
+                    <textarea id="achievements" placeholder="What did you achieve?"></textarea>
+                </div>
+                <div class="review">
+                    <label>What Went Well:</label>
+                    <textarea id="went-well" placeholder="What went well today?"></textarea>
+                </div>
+                <div class="review">
+                    <label>What to Improve:</label>
+                    <textarea id="to-improve" placeholder="What can you improve?"></textarea>
+                </div>
+                <button onclick="endDay()">End Day</button>
+            </section>
+        </div>
+
+        <section class="previous-days">
+            <h2>Previous Days</h2>
+            <div id="previous-days-content"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
